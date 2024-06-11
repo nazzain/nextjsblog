@@ -61,7 +61,8 @@ const SignupForm = () => {
         password,
       };
 
-      const response = await fetch("http://localhost:3000/api/signup", {
+      const response = await fetch("api/signup", 
+ {
         headers: {
           "Content-Type": "application/json",
         },

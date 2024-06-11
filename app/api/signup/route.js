@@ -25,6 +25,10 @@ import bcrypt, { hash } from "bcrypt";
 import { connect } from "@/lib/db";
 import { NextResponse } from "next/server";
 
+
+
+
+
 export async function POST(req) {
   try {
     await connect();
