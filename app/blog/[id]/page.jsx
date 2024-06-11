@@ -165,7 +165,7 @@ const BlogDetails = ({ params }) => {
       };
 
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment`,
+        `api/blog/${params.id}/comment`,
         {
           headers: {
             "Content-Type": "application/json",
