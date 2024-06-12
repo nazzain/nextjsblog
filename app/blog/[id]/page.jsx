@@ -126,7 +126,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/like`,
+        `/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
@@ -195,8 +195,7 @@ const BlogDetails = ({ params }) => {
 
   const handleDeleteComment = async(commentId) => {
     try {
-      const response = await fetch(
-        `/api/blog/${params.id}/comment/${commentId}`,
+      const response = await fetch(`/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
