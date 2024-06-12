@@ -12,7 +12,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("api/blog", {
+        const res = await fetch("/api/blog", {
           cache: "no-store",
         });
 

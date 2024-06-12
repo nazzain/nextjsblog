@@ -196,7 +196,7 @@ const BlogDetails = ({ params }) => {
   const handleDeleteComment = async(commentId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment/${commentId}`,
+        `/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
