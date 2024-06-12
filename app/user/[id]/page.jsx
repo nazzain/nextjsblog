@@ -1,10 +1,10 @@
-
+"use client"
 import React from 'react'
 import ProfileDetails from './ProfileDetails'
 
 
 async function getUserData(params) {
-    const res = await fetch(`./api/user/${params.id}`, {
+    const res = await fetch(`https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/api/user/${params.id}`, {
       cache: "no-store",
     });
   

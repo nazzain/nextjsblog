@@ -195,7 +195,7 @@ const BlogDetails = ({ params }) => {
 
   const handleDeleteComment = async(commentId) => {
     try {
-      const response = await fetch(`/api/blog/${params.id}/comment/${commentId}`,
+      const response = await fetch(`https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -221,7 +221,7 @@ const BlogDetails = ({ params }) => {
         session?.user?._id.toString() && (
         <div className="flex items-center justify-end gap-5">
           <Link
-            href={`/blog/edit/${params.id}`}
+            href={`https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/blog/edit/${params.id}`}
             className="flex items-center gap-1 text-primaryColor"
           >
             <BsFillPencilFill />
