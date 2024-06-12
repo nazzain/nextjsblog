@@ -14,7 +14,7 @@ const initialState = {
   description: "",
   excerpt: "",
   quote: "",
-  category: "Songbirds",
+  category: "Swat",
   photo: "",
 };
 
@@ -73,8 +73,8 @@ console.log(session)
       return;
     }
 
-    if (description.length < 20) {
-      setError("Description must be at least 20 characters long.");
+    if (description.length < 40) {
+      setError("Description must be at least 40 characters long.");
       return;
     }
 

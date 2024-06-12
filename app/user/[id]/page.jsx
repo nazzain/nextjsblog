@@ -4,7 +4,7 @@ import ProfileDetails from './ProfileDetails'
 
 
 async function getUserData(params) {
-    const res = await fetch(`api/user/${params.id}`, {
+    const res = await fetch(`/api/user/${params.id}`, {
       cache: "no-store",
     });
   
