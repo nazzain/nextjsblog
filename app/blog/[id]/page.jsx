@@ -126,7 +126,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `/api/blog/${params.id}/like`,
+        `https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
