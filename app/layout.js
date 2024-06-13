@@ -3,11 +3,11 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "./AuthProvider";
- const cors  = require('cors');
+//  const cors  = require('cors');
 
- app.use(cors({
-  origin:'http://localhost:3000/'
- }));
+//  app.use(cors({
+//   origin:'http://localhost:3000/'
+//  }));
 
 
 
