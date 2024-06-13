@@ -5,7 +5,7 @@ import ProfileDetails from './ProfileDetails'
 
 
 async function getUserData(params) {
-  const res = await fetch(`api/user/${params.id}`, {
+  const res = await fetch(`https://nextjsblog-six-azure.vercel.app/api/user/${params.id}`, {
     method: "Get",
   });
 
