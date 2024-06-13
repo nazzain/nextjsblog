@@ -65,7 +65,7 @@ const BlogDetails = ({ params }) => {
 
   async function fetchBlog() {
     try {
-      const response = await fetch(`api/blog/${params.id}`
+      const response = await fetch(`https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`
       );
       const blog = await response.json();
       setBlogDetails(blog);
