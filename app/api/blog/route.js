@@ -34,7 +34,8 @@ export async function GET(req) {
   await connect();
 
   try {
-    const blogs = await Blog.find({}).populate({
+    const blogs = await Blog.find({})
+      .populate({
         path: "authorId",
         select: "-password",
       })
