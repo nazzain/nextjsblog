@@ -41,7 +41,8 @@
 //   );
 // };
 // export default Blog
-import React  from "react";
+"use clint"
+import React, { useEffect, useState } from "react";
 import FirstBlog from "@/components/FirstBlog";
 import OtherBlogs from "@/components/OtherBlogs";
 
@@ -53,7 +54,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("https://nextjsblog-six-azure.vercel.app/api/blog", {
+        const res = await fetch("api/blog", {
           cache: "no-store",
         });
 

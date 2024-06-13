@@ -62,10 +62,11 @@ const BlogDetails = ({ params }) => {
 
   const router = useRouter();
   const { data: session, status } = useSession();
-
+  
   async function fetchBlog() {
     try {
-      const response = await fetch(`https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`
+      const response = await fetch('api/blog'
+        `${params.id}`
       );
       const blog = await response.json();
       setBlogDetails(blog);
@@ -94,7 +95,7 @@ const BlogDetails = ({ params }) => {
       if (confirmModal) {
         setIsDeleting(true);
         const response = await fetch(
-          `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`,
+          `api/blog/${params.id}`,
           {
             method: "DELETE",
             headers: {
