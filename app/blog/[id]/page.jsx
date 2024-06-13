@@ -94,7 +94,7 @@ const BlogDetails = ({ params }) => {
       if (confirmModal) {
         setIsDeleting(true);
         const response = await fetch(
-          `http://localhost:3000/api/blog/${params.id}`,
+          `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`,
           {
             method: "DELETE",
             headers: {
@@ -124,7 +124,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/like`,
+        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
@@ -163,7 +163,7 @@ const BlogDetails = ({ params }) => {
       };
 
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment`,
+        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/comment`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -194,7 +194,7 @@ const BlogDetails = ({ params }) => {
   const handleDeleteComment = async(commentId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment/${commentId}`,
+        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -220,7 +220,7 @@ const BlogDetails = ({ params }) => {
         session?.user?._id.toString() && (
         <div className="flex items-center justify-end gap-5">
           <Link
-            href={`/blog/edit/${params.id}`}
+            href={`https://nextjsblog-six-azure.vercel.app/blog/edit/${params.id}`}
             className="flex items-center gap-1 text-primaryColor"
           >
             <BsFillPencilFill />
