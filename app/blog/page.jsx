@@ -1,58 +1,38 @@
 
-"use client"
-import React, { useState, useEffect } from "react";
+import React from "react";
 import FirstBlog from "@/components/FirstBlog";
 import OtherBlogs from "@/components/OtherBlogs";
 
-const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+async function fetchBlogs() {
+  const res = await fetch("api/blog", {
+    cache: "no-store",
+  });
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch("api/blog", {
-          cache: "no-store",
-        });
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const data = await res.json();
-        setBlogs(data);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  return res.json();
+}
+
+const Blog = async () => {
+  const blogs = await fetchBlogs();
 
   const firstBlog = blogs && blogs[0];
-  const otherBlogs = blogs?.length > 0 && blogs.slice(1);
-
+  const otherBlogs = blogs?.length > 0 && blogs.slice(1)
   return (
     <div>
       {blogs?.length > 0 ? (
+        <>
         <div className="container">
           <h2 className="text-center my-10">
-            <span className="text-primaryColor">Trending</span> Blog
+            <span className="text-primaryColor">Trending</span>{" "}
+            Blog
           </h2>
           <FirstBlog firstBlog={firstBlog} />
           <OtherBlogs otherBlogs={otherBlogs} />
         </div>
+        </>
       ) : (
         <h3>No Blogs...</h3>
       )}
@@ -61,6 +41,3 @@ const Blog = () => {
 };
 
 export default Blog;
-
-
-

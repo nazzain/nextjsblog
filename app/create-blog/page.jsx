@@ -74,7 +74,7 @@ console.log(session)
     }
 
     if (description.length < 40) {
-      setError("Description must be at least 40 characters long.");
+      setError("Description must be at least 20 characters long.");
       return;
     }
 

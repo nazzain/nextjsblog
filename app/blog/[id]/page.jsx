@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import moment from "moment";
-import User from "@/models/User";
 
 import {
   AiFillDelete,
@@ -16,7 +15,7 @@ import {
 } from "react-icons/ai";
 import { BsFillPencilFill, BsTrash } from "react-icons/bs";
 
-import demo_Image from "@/public/img/demo_image.jpg";
+import demoImage from "@/public/img/demo_image.jpg";
 import Input from "@/components/input";
 import { deletePhoto } from "@/actions/uploadActions";
 
@@ -66,8 +65,7 @@ const BlogDetails = ({ params }) => {
 
   async function fetchBlog() {
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}`
+      const response = await fetch(`api/blog/${params.id}`
       );
       const blog = await response.json();
       setBlogDetails(blog);
@@ -126,7 +124,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        "api/blog" `${params.id}/like`,
+        `http://localhost:3000/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
@@ -165,7 +163,7 @@ const BlogDetails = ({ params }) => {
       };
 
       const response = await fetch(
-        `api/blog/${params.id}/comment`,
+        `http://localhost:3000/api/blog/${params.id}/comment`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -195,7 +193,8 @@ const BlogDetails = ({ params }) => {
 
   const handleDeleteComment = async(commentId) => {
     try {
-      const response = await fetch(`https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/api/blog/${params.id}/comment/${commentId}`,
+      const response = await fetch(
+        `http://localhost:3000/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -221,7 +220,7 @@ const BlogDetails = ({ params }) => {
         session?.user?._id.toString() && (
         <div className="flex items-center justify-end gap-5">
           <Link
-            href={`https://nextjsblog-6rsvlxw45-nazzains-projects.vercel.app/blog/edit/${params.id}`}
+            href={`/blog/edit/${params.id}`}
             className="flex items-center gap-1 text-primaryColor"
           >
             <BsFillPencilFill />
@@ -245,7 +244,7 @@ const BlogDetails = ({ params }) => {
               src={
                 blogDetails?.authorId?.avatar?.url
                   ? blogDetails?.authorId?.avatar?.url
-                  : demo_Image
+                  : demoImage
               }
               alt="avatar image"
               width={0}
@@ -277,7 +276,7 @@ const BlogDetails = ({ params }) => {
 
           <div>
             <Image
-              src={blogDetails?.image ? blogDetails?.image?.url : demo_Image}
+              src={blogDetails?.image ? blogDetails?.image?.url : demoImage}
               alt="blog details image"
               width={0}
               height={0}
@@ -365,7 +364,7 @@ const BlogDetails = ({ params }) => {
             {blogDetails.comments.map((comment) => (
               <div key={comment._id} className="flex gap-3 py-5 items-center">
                 <Image
-                  src={comment?.user?.avatar?.url ? comment?.user?.avatar?.url : demo_Image}
+                  src={comment?.user?.avatar?.url ? comment?.user?.avatar?.url : demoImage}
                   alt="avatar image"
                   width={0}
                   height={0}

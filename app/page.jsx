@@ -1,6 +1,12 @@
 
 import Image from "next/image";
 import dem1  from '@/public/img/dem1.jpg'
+//  const cors  = require('cors');
+
+//  app.use(cors({
+//   origin:'http://localhost:3000/'
+//  }));
+
 
 export default function Home() {
   return (

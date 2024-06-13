@@ -44,7 +44,7 @@ export async function PATCH(req, res) {
   }
 }
 
-export async function GET(req , res) {
+export async function GET(req, res) {
   await connect();
 
   const id = res.params.id;
@@ -122,4 +122,3 @@ export async function DELETE(req, res) {
     return NextResponse.json({ message: "Delete error" }, { status: 500 });
   }
 }
-

@@ -18,7 +18,7 @@ const Navbar = () => {
 
     async function fetchUser() {
         try {
-            const res = await fetch(`http://localhost:3000/api/user/${session?.user?._id}`);
+            const res = await fetch(`api/user/${session?.user?._id}`);
 
             const resData = await res.json();
 
@@ -38,7 +38,7 @@ const Navbar = () => {
     <div className='container py-2 mt-4 h-16 flex items-center justify-between'>
         <Link href="/">
             <h2>
-                Nazzain<span className='special-word'>Web.</span>
+                Nazzain  <span className='special-word'>Web.</span>
             </h2>
         </Link>
 

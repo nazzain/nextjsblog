@@ -6,7 +6,7 @@ import Input from "@/components/input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import TextArea from "@/components/TextArea";
-import demo_Image from "@/public/img/demo_image.jpg";
+import demoImage from "@/public/img/demo_image.jpg";
 import Image from "next/image";
 import { deletePhoto } from "@/actions/uploadActions";
 
@@ -15,14 +15,14 @@ const initialState = {
   description: "",
   excerpt: "",
   quote: "",
-  category: "Songbirds",
+  category: "Swat",
   photo: {},
   blogId: "",
   newImage: "",
 };
 
 const EditBlog = ({ params }) => {
-  const CLOUD_NAME = "dq3sduyht";
+  const CLOUD_NAME = "dddngrpft";
   const UPLOAD_PRESET = "nextjs_blog_images";
 
   const [state, setState] = useState(initialState);
@@ -36,7 +36,7 @@ console.log(state)
   useEffect(() => {
     async function fetchBlog() {
       try {
-        const res = await fetch("api/blog" `${params.id}`);
+        const res = await fetch(`api/blog/${params.id}`);
 
         if (res.status === 200) {
           const blogData = await res.json();
@@ -146,8 +146,7 @@ console.log(state)
         authorId: session?.user?._id,
       };
 
-      const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}`,
+      const response = await fetch(`/api/blog/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",

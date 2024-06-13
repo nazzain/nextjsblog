@@ -76,7 +76,7 @@ const ProfileDetails = ({ profile, params }) => {
       };
 
       const response = await fetch(
-        `api/user/${params.id}`,
+        `http://localhost:3000/api/user/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
