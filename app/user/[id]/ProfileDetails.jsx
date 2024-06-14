@@ -11,10 +11,17 @@ import Input from "@/components/input";
 import demoImage from "@/public/img/demo_image.jpg";
 import { AiOutlineClose } from "react-icons/ai";
 
-
 const ProfileDetails = ({ profile, params }) => {
-  const CLOUD_NAME = "dddngrpft";
-  const UPLOAD_PRESET = "nextjs_blog_images";
+  const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUD_NAME;
+  const UPLOAD_PRESET = process.env.NEXT_PUBLIC_UPLOAD_PRESET;
+
+  // Rest of your component logic
+};
+
+
+// const ProfileDetails = ({ profile, params }) => {
+//   const CLOUD_NAME = "dddngrpft";
+//   const UPLOAD_PRESET = "nextjs_blog_images";
 
   const [profileToEdit, setProfileToEdit] = useState(profile);
   const [avatarToEdit, setAvatarToEdit] = useState("");
@@ -76,7 +83,7 @@ const ProfileDetails = ({ profile, params }) => {
       };
 
       const response = await fetch(
-        `http://localhost:3000/api/user/${params.id}`,
+        `api/user/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
