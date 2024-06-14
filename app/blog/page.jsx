@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import FirstBlog from "@/components/FirstBlog";
 import OtherBlogs from "@/components/OtherBlogs";
+import { BASE_API_URL } from "../utils/constants";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -12,7 +13,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("https://nextjsblog-six-azure.vercel.app/api/blog", {
+        const res = await fetch(`${BASE_API_URL}/api/blog`, {
           cache: "no-store",
         });
 

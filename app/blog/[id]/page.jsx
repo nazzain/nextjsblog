@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import moment from "moment";
+import { BASE_API_URL } from "@/app/utils/constants";
 
 import {
   AiFillDelete,
@@ -18,6 +19,7 @@ import { BsFillPencilFill, BsTrash } from "react-icons/bs";
 import demoImage from "@/public/img/demo_image.jpg";
 import Input from "@/components/input";
 import { deletePhoto } from "@/actions/uploadActions";
+import { BASE_API_URL } from "@/app/utils/constants";
 
 function splitParagraph(paragraph) {
   const MIN_LENGTH = 280;
@@ -65,7 +67,7 @@ const BlogDetails = ({ params }) => {
 
   async function fetchBlog() {
     try {
-      const response = await fetch(`http://localhost:3000/api/blog/${params.id}`
+      const response = await fetch(`${BASE_API_URL}/api/blog/${params.id}`
       );
       const blog = await response.json();
       setBlogDetails(blog);
@@ -94,7 +96,7 @@ const BlogDetails = ({ params }) => {
       if (confirmModal) {
         setIsDeleting(true);
         const response = await fetch(
-          `http://localhost:3000/api/blog/${params.id}`,
+          `${BASE_API_URL}/api/blog/${params.id}`,
           {
             method: "DELETE",
             headers: {
@@ -118,13 +120,13 @@ const BlogDetails = ({ params }) => {
 
   const handleLike = async () => {
     if (!session?.user) {
-      alert("Please login before like..");
+      alert("Please login before like.");
       return;
     }
 
     try {
       const response = await fetch(
-        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/like`,
+        `${BASE_API_URL}/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
@@ -163,7 +165,7 @@ const BlogDetails = ({ params }) => {
       };
 
       const response = await fetch(
-        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/comment`,
+        `${BASE_API_URL}/api/blog/${params.id}/comment`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -194,7 +196,7 @@ const BlogDetails = ({ params }) => {
   const handleDeleteComment = async(commentId) => {
     try {
       const response = await fetch(
-        `https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}/comment/${commentId}`,
+        `${BASE_API_URL}/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -220,7 +222,7 @@ const BlogDetails = ({ params }) => {
         session?.user?._id.toString() && (
         <div className="flex items-center justify-end gap-5">
           <Link
-            href={`https://nextjsblog-six-azure.vercel.app/blog/edit/${params.id}`}
+            href={`${BASE_API_URL}/blog/edit/${params.id}`}
             className="flex items-center gap-1 text-primaryColor"
           >
             <BsFillPencilFill />

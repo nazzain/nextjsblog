@@ -7,6 +7,7 @@ import logo from '@/public/img/logo.png'
 import {AiOutlineClose} from 'react-icons/ai'
 import { usePathname } from 'next/navigation'
 import {signOut, useSession} from 'next-auth/react'
+import { BASE_API_URL } from "@/app/utils/constants";
 
 const Navbar = () => {
     const [userData, setUserData] = useState({})
@@ -18,7 +19,7 @@ const Navbar = () => {
 
     async function fetchUser() {
         try {
-            const res = await fetch(`api/user/${session?.user?._id}`);
+            const res = await fetch(`${BASE_API_URL}api/user/${session?.user?._id}`);
 
             const resData = await res.json();
 

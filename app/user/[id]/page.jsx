@@ -2,14 +2,11 @@ import React from 'react'
 import ProfileDetails from './ProfileDetails'
 
 async function getUserData(params) {
-    const res = await fetch(`https://nextjsblog-six-azure.vercel.app/api/user/${params.id}`, {
-      method: "Get",
+    const res = await fetch(
+      `${BASE_API_URL}/api/user/${params._id}`, {
+      cache: "no-store",
     });
-  
-    
-  
-    return res.json();
-  }
+}
 
 const UserProfile = async ({params}) => {
     const profile = await getUserData(params)

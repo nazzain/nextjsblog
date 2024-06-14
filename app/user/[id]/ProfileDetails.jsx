@@ -10,6 +10,7 @@ import { deletePhoto } from "@/actions/uploadActions";
 import Input from "@/components/input";
 import demoImage from "@/public/img/demo_image.jpg";
 import { AiOutlineClose } from "react-icons/ai";
+import { BASE_API_URL } from "@/app/utils/constants";
 
 const ProfileDetails = ({ profile, params }) => {
   const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUD_NAME;
@@ -79,7 +80,7 @@ const ProfileDetails = ({ profile, params }) => {
       };
 
       const response = await fetch(
-        `api/user/${params.id}`,
+        `${BASE_API_URL}/api/user/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -336,7 +337,7 @@ const ProfileDetails = ({ profile, params }) => {
         </Modal>
       </div>
     </div>
-  );
+  )
 };
 
 export default ProfileDetails;

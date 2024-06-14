@@ -9,6 +9,7 @@ import TextArea from "@/components/TextArea";
 import demoImage from "@/public/img/demo_image.jpg";
 import Image from "next/image";
 import { deletePhoto } from "@/actions/uploadActions";
+import { BASE_API_URL } from "@/app/utils/constants";
 
 const initialState = {
   title: "",
@@ -36,7 +37,7 @@ console.log(state)
   useEffect(() => {
     async function fetchBlog() {
       try {
-        const res = await fetch(`https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`);
+        const res = await fetch(`${BASE_API_URL}/api/blog/${params.id}`);
 
         if (res.status === 200) {
           const blogData = await res.json();
@@ -146,7 +147,7 @@ console.log(state)
         authorId: session?.user?._id,
       };
 
-      const response = await fetch(`https://nextjsblog-six-azure.vercel.app/api/blog/${params.id}`,
+      const response = await fetch(`${BASE_API_URL}/api/blog/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -258,11 +259,11 @@ console.log(state)
             value={state.category}
             className="block rounded-lg w-full p-3 bg-primaryColorLight"
           >
-            <option value="Songbirds">Songbirds</option>
-            <option value="Waterfowl">Waterfowl</option>
-            <option value="Parrots">Parrots</option>
-            <option value="Seabirds">Seabirds</option>
-            <option value="Gamebirds">Gamebirds</option>
+            <option value="Swat">Swat</option>
+            <option value="Muree">Muree</option>
+            <option value="Kalash valley">Kalash valley</option>
+            <option value="Hunza valley">Hunza valley</option>
+            <option value="Skardu">Skardu</option>
           </select>
         </div>
 
