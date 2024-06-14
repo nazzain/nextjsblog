@@ -15,13 +15,9 @@ const ProfileDetails = ({ profile, params }) => {
   const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUD_NAME;
   const UPLOAD_PRESET = process.env.NEXT_PUBLIC_UPLOAD_PRESET;
 
-  // Rest of your component logic
-};
+  
 
 
-// const ProfileDetails = ({ profile, params }) => {
-//   const CLOUD_NAME = "dddngrpft";
-//   const UPLOAD_PRESET = "nextjs_blog_images";
 
   const [profileToEdit, setProfileToEdit] = useState(profile);
   const [avatarToEdit, setAvatarToEdit] = useState("");

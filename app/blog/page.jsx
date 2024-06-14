@@ -12,7 +12,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("/api/blog", {
+        const res = await fetch("https://nextjsblog-six-azure.vercel.app/api/blog", {
           cache: "no-store",
         });
 
