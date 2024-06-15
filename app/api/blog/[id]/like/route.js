@@ -5,10 +5,10 @@ import { NextResponse } from "next/server";
 import { verifyJwtToken } from "@/lib/jwt";
 import Blog from "@/models/Blog";
 
-export async function PUT(req, res) {
+export async function PUT(req,res) {
   await connect();
 
-  const id = res.params.id;
+  const id = res.params._id;
   const accessToken = req.headers.get("authorization");
   const token = accessToken.split(" ")[1];
 
