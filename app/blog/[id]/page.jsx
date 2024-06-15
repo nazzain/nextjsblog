@@ -19,7 +19,7 @@ import { BsFillPencilFill, BsTrash } from "react-icons/bs";
 import demoImage from "@/public/img/demo_image.jpg";
 import Input from "@/components/input";
 import { deletePhoto } from "@/actions/uploadActions";
-import { BASE_API_URL } from "@/app/utils/constants";
+
 
 
 function splitParagraph(paragraph) {
