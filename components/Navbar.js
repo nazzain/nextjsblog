@@ -7,7 +7,7 @@ import logo from '@/public/img/logo.png'
 import {AiOutlineClose} from 'react-icons/ai'
 import { usePathname } from 'next/navigation'
 import {signOut, useSession} from 'next-auth/react'
-
+import { BASE_API_URL } from "@/app/utils/constants";
 
 const Navbar = () => {
     const [userData, setUserData] = useState({})
@@ -27,6 +27,9 @@ const Navbar = () => {
         } catch(error) {
             console.log(error)
         }
+    }
+    if(!BASE_API_URL){
+        return null;
     }
 
     useEffect(() => {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import moment from "moment";
+import { BASE_API_URL } from "@/app/utils/constants";
 
 
 import {
@@ -95,8 +96,7 @@ const BlogDetails = ({ params }) => {
 
       if (confirmModal) {
         setIsDeleting(true);
-        const response = await fetch(
-          `${BASE_API_URL}/api/blog/${params.id}`,
+        const response = await fetch(`${BASE_API_URL}/api/blog/${params._id}`,
           {
             method: "DELETE",
             headers: {
@@ -126,7 +126,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `${BASE_API_URL}/api/blog/${params.id}/like`,
+        `${BASE_API_URL}/api/blog/${params._id}/like`,
         {
           method: "PUT",
           headers: {
