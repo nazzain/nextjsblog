@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import moment from "moment";
-import { BASE_API_URL } from "@/app/utils/constants";
 
 
 import {
@@ -21,6 +20,7 @@ import demoImage from "@/public/img/demo_image.jpg";
 import Input from "@/components/input";
 import { deletePhoto } from "@/actions/uploadActions";
 import { BASE_API_URL } from "@/app/utils/constants";
+
 
 function splitParagraph(paragraph) {
   const MIN_LENGTH = 280;
@@ -96,7 +96,8 @@ const BlogDetails = ({ params }) => {
 
       if (confirmModal) {
         setIsDeleting(true);
-        const response = await fetch(`${BASE_API_URL}/api/blog/${params._id}`,
+        const response = await fetch(
+          `${BASE_API_URL}/api/blog/${params.id}`,
           {
             method: "DELETE",
             headers: {
@@ -126,7 +127,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `${BASE_API_URL}/api/blog/${params._id}/like`,
+        `${BASE_API_URL}/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
